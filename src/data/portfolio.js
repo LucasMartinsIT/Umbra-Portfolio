@@ -24,7 +24,7 @@ export const RESUMES = {
   },
 };
 
-export const SECTION_IDS = ['home', 'about', 'skills', 'experience', 'projects', 'gallery-3d', 'education'];
+export const SECTION_IDS = ['home', 'about', 'skills', 'experience', 'projects', 'gallery-3d', 'education', 'contact'];
 
 const repository = (name) => ({ labelKey: 'github', url: `${GITHUB_URL}/${name}` });
 const githubAsset = (id) => `https://github.com/user-attachments/assets/${id}`;

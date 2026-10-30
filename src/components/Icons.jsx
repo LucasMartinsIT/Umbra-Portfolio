@@ -53,4 +53,8 @@ export const ChatIcon = (props) => <Outline {...props} d="M4 5h16v11H9l-5 4V5Z" 
 export const MutedIcon = (props) => <Outline {...props} d="M4 9v6h4l5 4V5L8 9H4Zm12 0 5 6m0-6-5 6" />;
 export const MusicIcon = (props) => <Solid {...props} d="M9 3v12.3A3.5 3.5 0 1 0 11 18.5V8h8v7.3a3.5 3.5 0 1 0 2 3.2V3H9Z" />;
 export const ClockIcon = (props) => <Outline {...props} d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 4v5" />;
+export const MailIcon = (props) => <Outline {...props} d="M3 6h18v12H3V6Zm0 0 9 7 9-7" />;
+export const PhoneIcon = (props) => (
+  <Outline {...props} d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2Z" />
+);
 export const CloseIcon = (props) => <Outline {...props} d="M6 6l12 12M18 6 6 18" />;

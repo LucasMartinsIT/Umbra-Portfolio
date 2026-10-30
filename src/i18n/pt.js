@@ -13,6 +13,7 @@ const pt = {
     projects: 'Projetos',
     'gallery-3d': 'Galeria 3D',
     education: 'Formação',
+    contact: 'Contato',
     openMenu: 'Abrir menu',
     closeMenu: 'Fechar menu',
     main: 'Principal',
@@ -314,6 +315,21 @@ const pt = {
       { name: 'Português', level: 'Nativo' },
       { name: 'Inglês', level: 'Avançado' },
     ],
+  },
+  contact: {
+    kicker: 'Social Link',
+    title: 'Vamos Trabalhar Juntos!',
+    message:
+      'Estou aberto a vagas júnior em software, back-end e jogos. Se você tem uma oportunidade ou um projeto em mente, me manda uma mensagem e vamos conversar.',
+    optionsLabel: 'Formas de contato',
+    whatsappAction: 'Enviar mensagem',
+    options: {
+      email: 'E-mail',
+      phone: 'Telefone',
+      whatsapp: 'WhatsApp',
+      linkedin: 'LinkedIn',
+      github: 'GitHub',
+    },
   },
 };
 

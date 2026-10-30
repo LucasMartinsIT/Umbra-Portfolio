@@ -53,5 +53,5 @@ The layout in `src/App.jsx` is a single-page vertical scroll with the sections b
 - Intro: `IntroSequence` must stay at or under 1.8s, skips on click and is disabled for reduced motion.
 - Welcome dialog: `WelcomeDialog` is a Persona-style HUD with Lucas's portrait (`public/lucas-suit.png`), a "Lucas Martins / DEVELOPER" nameplate and two choices. Music (`public/ambient-jazz.mp3`, "No More What Ifs - Instrumental", volume 0.18, looped) starts only from the click on the first choice, because of browser autoplay policies.
 - Hosting is Netlify (`lucasmartins-portfolio.netlify.app`). Its badge is a fixed 197x64px iframe in the bottom-right corner with the highest z-index, so fixed controls must stay above it.
-- Contact: `+55 (15) 98178-2217`, with `tel:` and WhatsApp links in the footer and hero.
+- Contact: `+55 (15) 98178-2217`, with `tel:` and WhatsApp links in the footer, hero and the `Contact` section (`#contact`), which closes the page after Education.
 - Deploy: pushes to `main` publish through Netlify. GitHub: `LucasMartinsIT/Umbra-Portfolio`.

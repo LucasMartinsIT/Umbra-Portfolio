@@ -1,5 +1,6 @@
 import About from './components/About';
 import Atmosphere from './components/Atmosphere';
+import Contact from './components/Contact';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
@@ -27,6 +28,7 @@ function App() {
             <Projects />
             <Gallery3D />
             <Education />
+            <Contact />
           </main>
           <Footer />
           <Atmosphere />

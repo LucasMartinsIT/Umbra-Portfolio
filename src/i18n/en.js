@@ -13,6 +13,7 @@ const en = {
     projects: 'Projects',
     'gallery-3d': '3D Gallery',
     education: 'Education',
+    contact: 'Contact',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     main: 'Main',
@@ -314,6 +315,21 @@ const en = {
       { name: 'Portuguese', level: 'Native' },
       { name: 'English', level: 'Advanced' },
     ],
+  },
+  contact: {
+    kicker: 'Social Link',
+    title: "Let's Work Together!",
+    message:
+      "I'm open to junior software, backend and game developer roles. If you have an opportunity or a project in mind, send me a message and let's talk.",
+    optionsLabel: 'Contact options',
+    whatsappAction: 'Send a message',
+    options: {
+      email: 'Email',
+      phone: 'Phone',
+      whatsapp: 'WhatsApp',
+      linkedin: 'LinkedIn',
+      github: 'GitHub',
+    },
   },
 };
 
