@@ -75,6 +75,17 @@ describe('App', () => {
     links.forEach((link) => expect(link).toHaveAttribute('href', LINKS.linkedin));
   });
 
+  it('introduces Lucas in the About section, in both languages', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    expect(screen.getByRole('heading', { name: en.about.title })).toBeInTheDocument();
+    en.about.interests.forEach(({ description }) => expect(screen.getByText(description)).toBeInTheDocument());
+
+    await switchTo(user, 'PT-BR');
+    expect(screen.getByRole('heading', { name: 'Sobre Mim' })).toBeInTheDocument();
+    expect(screen.getByText(pt.about.summary)).toBeInTheDocument();
+  });
+
   it('offers phone and WhatsApp contact', () => {
     render(<App />);
     expect(screen.getByRole('link', { name: LINKS.phoneDisplay })).toHaveAttribute('href', 'tel:+5515981782217');

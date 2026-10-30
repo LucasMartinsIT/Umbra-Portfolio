@@ -7,6 +7,7 @@ const en = {
   },
   nav: {
     home: 'Home',
+    about: 'About',
     skills: 'Skills',
     experience: 'Experience',
     projects: 'Projects',
@@ -54,6 +55,40 @@ const en = {
       lastQuarter: 'Last Quarter',
       waningCrescent: 'Waning Crescent',
     },
+  },
+  about: {
+    kicker: 'Profile',
+    title: 'About Me',
+    role: 'Backend Developer | Game Developer',
+    portraitAlt: 'Portrait of Lucas Martins in a suit',
+    summary:
+      'I am a software developer with a solid foundation in support analysis, currently focusing my career on Backend Development and Game Development. I am passionate about building robust server-side architectures, crafting efficient logic, and creating engaging interactive experiences.',
+    interests: [
+      {
+        icon: '💻',
+        title: 'Tech Focus',
+        description:
+          'I specialize in developing backend systems and building games, constantly exploring new architectures and performance optimizations.',
+      },
+      {
+        icon: '☕',
+        title: 'Beyond the Screen',
+        description:
+          'I am a certified professional barista and take great pleasure in brewing high-quality coffee for my family and myself.',
+      },
+      {
+        icon: '🌳',
+        title: 'Culture & Arts',
+        description:
+          'I cultivate bonsai trees and play the piano. These practices require patience, discipline, and attention to detail, traits that directly reflect in my code.',
+      },
+      {
+        icon: '🎨',
+        title: 'Creative Outlet',
+        description:
+          'I actively practice 3D modeling using Blender, which helps me bridge the gap between technical programming and artistic vision.',
+      },
+    ],
   },
   hero: {
     availability: 'Open to Junior Software, Backend & Game Developer roles',

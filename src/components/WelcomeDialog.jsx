@@ -7,6 +7,7 @@ import { INTRO_MS } from './IntroSequence';
 
 const APPEAR_DELAY_MS = INTRO_MS + 400;
 const FIRST_GESTURES = ['pointerdown', 'keydown', 'scroll'];
+// bottom-20 and pb-20 keep every control above the badge Netlify pins to the corner.
 
 function Choice({ title, detail, onClick, buttonRef }) {
   return (
@@ -48,7 +49,7 @@ function Dialog({ failed, onChooseMusic, onChooseSilence, onMinimize }) {
   return (
     <div
       data-testid="dialog-backdrop"
-      className="fixed inset-0 z-45 flex items-end justify-center bg-abyss/60 p-3 md:p-8"
+      className="fixed inset-0 z-45 flex items-end justify-center overflow-y-auto bg-abyss/60 px-3 pt-20 pb-20 md:px-8"
       onClick={(event) => event.target === event.currentTarget && onMinimize()}
     >
       <div
@@ -151,7 +152,7 @@ function WelcomeDialog() {
         />
       )}
       {opened && minimized && (
-        <div className="gm-enter fixed right-4 bottom-4 z-45 flex gap-1.5">
+        <div className="gm-enter fixed right-4 bottom-20 z-45 flex gap-1.5">
           <button
             type="button"
             onClick={toggle}

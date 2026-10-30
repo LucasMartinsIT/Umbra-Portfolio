@@ -5,7 +5,7 @@ Personal developer portfolio for **Lucas Martins** (Computer Engineering student
 - **Language:** The site is bilingual: English (default) and Brazilian Portuguese, switched in the navbar. All visible text lives in `src/i18n/en.js` and `src/i18n/pt.js`, which must keep the same structure (a test enforces it); `src/data/portfolio.js` holds only language-neutral data. Code comments stay in English.
 - **Design Theme:** "UMBRA." branding with an art direction inspired by Persona 3 Reload: moonlit ocean blues, slanted UI, heavy condensed type. Colors and fonts are tokens in `src/index.css` (abyss, ocean, tide, aqua, mist, foam). Inspired only: never use Atlus logos or game art. The one exception is the soundtrack, added at Lucas's explicit request. Keep section titles plain and recruiter-friendly; game references stay in small kickers.
 - **Dark Hour Mode:** Acid green theme (backgrounds `#040803`/`#081206`, surfaces `#0c1a0a`, borders `#1e4616`, glow `#26ff00`/`#39ff14`, secondary text `#73a968`) with a vignette and pulsing fog. It turns on from the navbar button, from 00:00 to 00:59 local time, or while the 3D Gallery is on screen; a manual choice always wins. The 3D stage switches to green lights (`stageLighting.js`). It is a `data-theme="dark-hour"` attribute on `<html>` that swaps tokens registered with `@property`, so colors transition smoothly. Palette changes go through tokens, never hard-coded colors.
-- **Deployment Target:** Vercel.
+- **Deployment Target:** Netlify.
 
 ## 2. Tech Stack & Environment Rules
 - **Framework:** React (Vite)
@@ -16,7 +16,7 @@ Personal developer portfolio for **Lucas Martins** (Computer Engineering student
 - **Blender:** 5.2. Export scripts live in `scripts/blender/`.
 
 ## 3. Site Architecture (Single-Page / Smooth Scroll)
-The layout in `src/App.jsx` is a single-page vertical scroll divided into 6 sections:
+The layout in `src/App.jsx` is a single-page vertical scroll with the sections below, plus **About Me (`#about`)** right after Home, based on the profile README on GitHub (summary and interests):
 
 1. **Home (`#home`):** Hero section introducing Lucas Martins (Back-End Developer / Software Engineer) with the summary from his resume. Links to GitHub, LinkedIn, and CV download (the file follows the selected language). Atmosphere: pulsing moon glow, drifting particles and waves.
 2. **Technical Skills (`#skills`):** Categorized showcase:
@@ -44,7 +44,7 @@ The layout in `src/App.jsx` is a single-page vertical scroll divided into 6 sect
    - **Languages:** Portuguese (Native), English (Advanced).
 
 ## 4. Current State
-- All 6 sections are implemented as components in `src/components/`, with their text in `src/i18n/` and neutral data in `src/data/portfolio.js`.
+- All sections are implemented as components in `src/components/`, with their text in `src/i18n/` and neutral data in `src/data/portfolio.js`.
 - The R3F carousel lives in `src/components/gallery/`. `ModelCanvas` is lazy-loaded so three.js only downloads when the gallery nears the viewport.
 - GLBs in `public/models/` are exported from the `.blend` sources in `../LowPolyBlender` and `../GumRoadLowPoly`; each needs a matching entry in `MODELS`. Models without materials are left out until textured.
 - `src/data/assets.test.js` reads every GLB and fails on missing textures, wrong stats, unknown animation clips or orphan files, so update `MODELS` together with any export.
@@ -52,6 +52,7 @@ The layout in `src/App.jsx` is a single-page vertical scroll divided into 6 sect
 - Never export a Rigify rig directly: the exporter tears constrained bones (the capybara's front legs). `export_capybara.py` bakes evaluated poses onto a flat skeleton and refits weights to 4 influences; run `verify_skinning.py` after any re-export. Layered Ucupaint paint must be baked first.
 - Intro: `IntroSequence` must stay at or under 1.8s, skips on click and is disabled for reduced motion.
 - Welcome dialog: `WelcomeDialog` is a Persona-style HUD with Lucas's portrait (`public/lucas-suit.png`), a "Lucas Martins / DEVELOPER" nameplate and two choices. Music (`public/ambient-jazz.mp3`, "No More What Ifs - Instrumental", volume 0.18, looped) starts only from the click on the first choice, because of browser autoplay policies.
+- Hosting is Netlify (`lucasmartins-portfolio.netlify.app`). Its badge is a fixed 197x64px iframe in the bottom-right corner with the highest z-index, so fixed controls must stay above it.
 - Contact: `+55 (15) 98178-2217`, with `tel:` and WhatsApp links in the footer and hero.
-- Deploy: Vercel (`vercel.json`). GitHub: `LucasMartinsIT/Umbra-Portfolio`.
+- Deploy: pushes to `main` publish through Netlify. GitHub: `LucasMartinsIT/Umbra-Portfolio`.
 - Pending files from Lucas: `public/projects/capybara-zoo-break.gif`, `public/projects/gastoja-desktop.png` (listed in `PENDING_MEDIA` in `assets.test.js`; remove entries as they arrive).

@@ -7,6 +7,7 @@ const pt = {
   },
   nav: {
     home: 'Início',
+    about: 'Sobre',
     skills: 'Habilidades',
     experience: 'Experiência',
     projects: 'Projetos',
@@ -54,6 +55,40 @@ const pt = {
       lastQuarter: 'Quarto Minguante',
       waningCrescent: 'Lua Minguante',
     },
+  },
+  about: {
+    kicker: 'Perfil',
+    title: 'Sobre Mim',
+    role: 'Desenvolvedor Back-End | Desenvolvedor de Jogos',
+    portraitAlt: 'Retrato de Lucas Martins de terno',
+    summary:
+      'Sou desenvolvedor de software com uma base sólida em análise de suporte, atualmente focando minha carreira em Desenvolvimento Back-End e Desenvolvimento de Jogos. Sou apaixonado por construir arquiteturas robustas no servidor, criar lógica eficiente e desenvolver experiências interativas envolventes.',
+    interests: [
+      {
+        icon: '💻',
+        title: 'Foco Técnico',
+        description:
+          'Sou especializado no desenvolvimento de sistemas back-end e na criação de jogos, explorando constantemente novas arquiteturas e otimizações de desempenho.',
+      },
+      {
+        icon: '☕',
+        title: 'Além da Tela',
+        description:
+          'Sou barista profissional certificado e tenho grande prazer em preparar cafés de alta qualidade para minha família e para mim.',
+      },
+      {
+        icon: '🌳',
+        title: 'Cultura & Artes',
+        description:
+          'Cultivo bonsais e toco piano. Essas práticas exigem paciência, disciplina e atenção aos detalhes, características que se refletem diretamente no meu código.',
+      },
+      {
+        icon: '🎨',
+        title: 'Lado Criativo',
+        description:
+          'Pratico modelagem 3D no Blender, o que me ajuda a unir a programação técnica e a visão artística.',
+      },
+    ],
   },
   hero: {
     availability: 'Aberto a vagas Júnior em Software, Back-End e Jogos',

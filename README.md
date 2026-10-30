@@ -33,7 +33,7 @@ Interactive developer portfolio of **Lucas Martins**, with an art direction insp
 | 3D | Three.js, React Three Fiber, Drei |
 | Tests | Vitest, Testing Library |
 | 3D pipeline | Blender 5.2 with Python export scripts |
-| Hosting | Vercel |
+| Hosting | Netlify |
 
 ### Running locally
 
@@ -88,7 +88,7 @@ src/theme/       Dark Hour logic
 | 3D | Three.js, React Three Fiber, Drei |
 | Testes | Vitest, Testing Library |
 | Pipeline 3D | Blender 5.2 com scripts de exportação em Python |
-| Hospedagem | Vercel |
+| Hospedagem | Netlify |
 
 ### Como rodar localmente
 

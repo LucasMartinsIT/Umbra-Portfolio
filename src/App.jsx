@@ -1,3 +1,4 @@
+import About from './components/About';
 import Atmosphere from './components/Atmosphere';
 import Education from './components/Education';
 import Experience from './components/Experience';
@@ -20,6 +21,7 @@ function App() {
           <Navbar />
           <main>
             <Hero />
+            <About />
             <Skills />
             <Experience />
             <Projects />
