@@ -41,7 +41,7 @@ export const PROJECTS = [
     id: 'capybara',
     tags: ['Unity', 'URP', 'C#', 'HLSL', 'Shader Graph'],
     links: [repository('Capybara-Zoo-Break')],
-    media: { type: 'image', src: '/projects/capybara-zoo-break.gif' },
+    media: { type: 'video', src: '/projects/capybara-run.mp4', fit: 'contain' },
   },
   {
     id: 'gastoja',
@@ -53,11 +53,7 @@ export const PROJECTS = [
     id: 'picscreen',
     tags: ['JavaScript', 'Manifest V3', 'Canvas API', 'JSZip'],
     links: [{ labelKey: 'chromeWebStore', url: LINKS.picscreenStore }, repository('PicScreen-Chrome-Extension')],
-    media: {
-      type: 'image',
-      src: 'https://raw.githubusercontent.com/LucasMartinsIT/PicScreen-Chrome-Extension/HEAD/icon128.png',
-      fit: 'contain',
-    },
+    media: { type: 'image', src: '/projects/picscreen.png' },
   },
   {
     id: 'gaiaProtector',

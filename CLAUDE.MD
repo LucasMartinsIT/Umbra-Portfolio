@@ -55,4 +55,3 @@ The layout in `src/App.jsx` is a single-page vertical scroll with the sections b
 - Hosting is Netlify (`lucasmartins-portfolio.netlify.app`). Its badge is a fixed 197x64px iframe in the bottom-right corner with the highest z-index, so fixed controls must stay above it.
 - Contact: `+55 (15) 98178-2217`, with `tel:` and WhatsApp links in the footer and hero.
 - Deploy: pushes to `main` publish through Netlify. GitHub: `LucasMartinsIT/Umbra-Portfolio`.
-- Pending files from Lucas: `public/projects/capybara-zoo-break.gif`, `public/projects/gastoja-desktop.png` (listed in `PENDING_MEDIA` in `assets.test.js`; remove entries as they arrive).

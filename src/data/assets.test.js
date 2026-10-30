@@ -10,8 +10,6 @@ const MAX_MODEL_BYTES = 2 * 1024 * 1024;
 const MAX_LOCAL_MEDIA_BYTES = 8 * 1024 * 1024;
 
 // Waiting for Lucas: until then the cards show their styled placeholder.
-const PENDING_MEDIA = ['/projects/capybara-zoo-break.gif', '/projects/gastoja-desktop.png'];
-
 // Love-chan's inverted-hull outline is a solid black material on purpose.
 const OUTLINE_MATERIALS = { loveChan: 'Material' };
 
@@ -94,7 +92,7 @@ describe('project media', () => {
 
   it('only references local files that exist and stay light', () => {
     PROJECTS.map((project) => project.media.src)
-      .filter((src) => src.startsWith('/') && !PENDING_MEDIA.includes(src))
+      .filter((src) => src.startsWith('/'))
       .forEach((src) => {
         expect(existsSync(join(PUBLIC_DIR, src)), src).toBe(true);
         expect(statSync(join(PUBLIC_DIR, src)).size).toBeLessThan(MAX_LOCAL_MEDIA_BYTES);
