@@ -1,0 +1,551 @@
+@import "tailwindcss";
+
+/* Art direction inspired by Persona 3 Reload: moonlit ocean blues, slanted UI, heavy condensed type */
+@theme {
+  --color-abyss: #050d24;
+  --color-ocean: #0b2566;
+  --color-tide: #1a56d6;
+  --color-aqua: #2fd6ff;
+  --color-mist: #aecbea;
+  --color-foam: #effbff;
+  --color-trench: #0b2566;
+  --color-edge: #163a8a;
+  --color-glow: #1a56d6;
+
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Anton", Impact, ui-sans-serif, sans-serif;
+
+  --animate-tide: tide 18s linear infinite;
+}
+
+/* Registered so the whole palette can transition when the Dark Hour starts */
+@property --color-abyss {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #050d24;
+}
+
+@property --color-ocean {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0b2566;
+}
+
+@property --color-tide {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1a56d6;
+}
+
+@property --color-aqua {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2fd6ff;
+}
+
+@property --color-mist {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #aecbea;
+}
+
+@property --color-foam {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #effbff;
+}
+
+@property --color-trench {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #0b2566;
+}
+
+@property --color-edge {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #163a8a;
+}
+
+@property --color-glow {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1a56d6;
+}
+
+@property --moon-core {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --moon-mid {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d5f3ff;
+}
+
+@property --moon-edge {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #7fdcff;
+}
+
+:root {
+  --moon-pulse-peak: 0.55;
+  transition:
+    --color-abyss 900ms ease,
+    --color-ocean 900ms ease,
+    --color-tide 900ms ease,
+    --color-aqua 900ms ease,
+    --color-mist 900ms ease,
+    --color-foam 900ms ease,
+    --color-trench 900ms ease,
+    --color-edge 900ms ease,
+    --color-glow 900ms ease,
+    --moon-core 900ms ease,
+    --moon-mid 900ms ease,
+    --moon-edge 900ms ease;
+}
+
+:root[data-theme="dark-hour"] {
+  --color-abyss: #040803;
+  --color-trench: #081206;
+  --color-ocean: #0c1a0a;
+  --color-edge: #1e4616;
+  --color-tide: #1e4616;
+  --color-aqua: #26ff00;
+  --color-glow: #39ff14;
+  --color-mist: #73a968;
+  --color-foam: #e3ffd8;
+  --moon-core: #efffe6;
+  --moon-mid: #8dff5a;
+  --moon-edge: #26ff00;
+  --moon-pulse-peak: 1;
+}
+
+/* Radioactive bloom: text and frames glow, while clipped shapes rely on .glow-frame wrappers */
+:root[data-theme="dark-hour"] .text-aqua {
+  text-shadow: 0 0 12px color-mix(in srgb, var(--color-glow) 55%, transparent);
+}
+
+:root[data-theme="dark-hour"] .title-slant {
+  text-shadow:
+    0.06em 0.06em 0 var(--color-tide),
+    0 0 28px color-mix(in srgb, var(--color-glow) 40%, transparent);
+}
+
+:root[data-theme="dark-hour"] .glow-frame {
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--color-glow) 28%, transparent));
+}
+
+:root[data-theme="dark-hour"] nav.fixed {
+  box-shadow: 0 0 24px color-mix(in srgb, var(--color-glow) 22%, transparent);
+}
+
+@keyframes tide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moon-pulse {
+  0%,
+  100% {
+    opacity: calc(var(--moon-pulse-peak) * 0.55);
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: var(--moon-pulse-peak);
+    transform: scale(1.04);
+  }
+}
+
+@keyframes particle-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+
+  15%,
+  70% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(1.5rem, -85vh, 0);
+  }
+}
+
+@keyframes fog-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes gm-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+@keyframes intro-shard {
+  from {
+    transform: translateX(-110%);
+  }
+
+  to {
+    transform: translateX(110%);
+  }
+}
+
+@keyframes intro-cut-up {
+  to {
+    transform: translate3d(-6%, -105%, 0);
+  }
+}
+
+@keyframes intro-cut-down {
+  to {
+    transform: translate3d(6%, 105%, 0);
+  }
+}
+
+@keyframes intro-logo {
+  0% {
+    opacity: 0;
+    transform: skewX(-8deg) scale(1.15);
+  }
+
+  18%,
+  80% {
+    opacity: 1;
+    transform: skewX(-8deg) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: skewX(-8deg) scale(0.96);
+  }
+}
+
+@keyframes intro-shimmer {
+  from {
+    background-position: 130% 0;
+  }
+
+  to {
+    background-position: -30% 0;
+  }
+}
+
+@keyframes intro-glitch-top {
+  0%,
+  100% {
+    opacity: 0.9;
+    clip-path: inset(0 0 62% 0);
+    transform: translateX(0);
+  }
+
+  20% {
+    opacity: 0.9;
+    clip-path: inset(8% 0 70% 0);
+    transform: translateX(-0.06em);
+  }
+
+  45% {
+    opacity: 0.9;
+    clip-path: inset(30% 0 48% 0);
+    transform: translateX(0.08em);
+  }
+
+  70% {
+    opacity: 0.9;
+    clip-path: inset(14% 0 66% 0);
+    transform: translateX(-0.03em);
+  }
+}
+
+@keyframes intro-glitch-bottom {
+  0%,
+  100% {
+    opacity: 0.9;
+    clip-path: inset(64% 0 0 0);
+    transform: translateX(0);
+  }
+
+  30% {
+    opacity: 0.9;
+    clip-path: inset(52% 0 22% 0);
+    transform: translateX(0.07em);
+  }
+
+  60% {
+    opacity: 0.9;
+    clip-path: inset(74% 0 6% 0);
+    transform: translateX(-0.07em);
+  }
+}
+
+@keyframes dark-hour-reveal {
+  0% {
+    opacity: 0;
+  }
+
+  18%,
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+::selection {
+  background: var(--color-aqua);
+  color: var(--color-abyss);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-aqua);
+  outline-offset: 3px;
+}
+
+.title-slant {
+  transform: skewX(-8deg);
+  transform-origin: left bottom;
+  text-shadow: 0.06em 0.06em 0 var(--color-tide);
+}
+
+.clip-slant {
+  clip-path: polygon(0.75rem 0, 100% 0, calc(100% - 0.75rem) 100%, 0 100%);
+}
+
+.clip-panel {
+  clip-path: polygon(0 0, calc(100% - 1.75rem) 0, 100% 1.75rem, 100% 100%, 1.75rem 100%, 0 calc(100% - 1.75rem));
+}
+
+.clip-portrait {
+  clip-path: polygon(14% 0, 100% 0, 86% 100%, 0 100%);
+}
+
+.clip-speech {
+  clip-path: polygon(0 0, calc(100% - 3rem) 0, 100% 2.5rem, 100% 100%, 2rem 100%, 0 calc(100% - 2rem));
+}
+
+/* Selected JRPG option: white block with dark text */
+.dialog-choice {
+  background: color-mix(in srgb, var(--color-abyss) 92%, transparent);
+  color: var(--color-foam);
+  transition: background-color 120ms, color 120ms;
+}
+
+.dialog-choice:hover,
+.dialog-choice:focus-visible {
+  background: var(--color-foam);
+  color: var(--color-abyss);
+}
+
+.clip-diagonal {
+  clip-path: polygon(0 4vw, 100% 0, 100% 100%, 0 100%);
+}
+
+/* The selection bar of the in-game menu: a white block that wipes in behind the word */
+.menu-wipe {
+  background: linear-gradient(var(--color-foam), var(--color-foam)) no-repeat left / 0 100% var(--color-abyss);
+  transition: background-size 180ms ease-out, color 120ms;
+}
+
+.menu-wipe:hover,
+.menu-wipe:focus-visible {
+  background-size: 100% 100%;
+  color: var(--color-abyss);
+}
+
+.moon {
+  background: radial-gradient(circle at 42% 38%, var(--moon-core) 0 30%, var(--moon-mid) 58%, var(--moon-edge) 82%);
+  box-shadow:
+    0 0 80px 24px color-mix(in srgb, var(--color-aqua) 45%, transparent),
+    0 0 240px 90px color-mix(in srgb, var(--color-glow) 50%, transparent);
+}
+
+/* The bloom pulses on its own layer, since animating box-shadow repaints every frame */
+.moon::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-aqua) 55%, transparent) 40%, transparent 70%);
+  animation: moon-pulse 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  bottom: -1rem;
+  border-radius: 50%;
+  background: var(--color-aqua);
+  box-shadow: 0 0 8px var(--color-aqua);
+  animation: particle-rise linear infinite;
+}
+
+.dark-hour-reveal {
+  animation: dark-hour-reveal 1.8s ease-in-out forwards;
+}
+
+/* Vignette and fog stay mounted so they can fade with the palette */
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+
+:root[data-theme="dark-hour"] .atmosphere {
+  opacity: 1;
+}
+
+.atmosphere-fog {
+  position: absolute;
+  inset: -15%;
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 100%, color-mix(in srgb, var(--color-glow) 20%, transparent), transparent),
+    radial-gradient(ellipse 45% 30% at 20% 55%, color-mix(in srgb, var(--color-glow) 7%, transparent), transparent),
+    radial-gradient(ellipse 45% 30% at 80% 45%, color-mix(in srgb, var(--color-glow) 7%, transparent), transparent);
+}
+
+:root[data-theme="dark-hour"] .atmosphere-fog {
+  animation: fog-pulse 8s ease-in-out infinite;
+}
+
+.atmosphere-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 68%, rgb(0 0 0 / 0.6) 100%);
+}
+
+.gm-enter {
+  animation: gm-enter 320ms ease-out;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.intro-panel {
+  position: absolute;
+  inset: 0;
+  background: var(--color-abyss);
+}
+
+.intro-panel-top {
+  clip-path: polygon(0 0, 100% 0, 100% 40.4%, 0 60.4%);
+  animation: intro-cut-up 480ms cubic-bezier(0.8, 0, 0.2, 1) 1.15s forwards;
+}
+
+.intro-panel-bottom {
+  clip-path: polygon(0 60%, 100% 40%, 100% 100%, 0 100%);
+  animation: intro-cut-down 480ms cubic-bezier(0.8, 0, 0.2, 1) 1.15s forwards;
+}
+
+.intro-shard {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: var(--color-aqua);
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+  transform: translateX(-110%);
+  animation: intro-shard 620ms cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+.intro-logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: intro-logo 1.2s ease-out forwards;
+}
+
+.intro-logo-text {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 16vw, 10rem);
+  letter-spacing: 0.08em;
+  color: transparent;
+  background: linear-gradient(105deg, var(--color-foam) 42%, var(--color-aqua) 50%, var(--color-foam) 58%) 130% 0 / 260% 100%;
+  background-clip: text;
+  animation: intro-shimmer 900ms linear 160ms forwards;
+}
+
+.intro-logo-text::before,
+.intro-logo-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.intro-logo-text::before {
+  color: var(--color-aqua);
+  animation: intro-glitch-top 300ms steps(4) 3;
+}
+
+.intro-logo-text::after {
+  color: var(--color-glow);
+  animation: intro-glitch-bottom 300ms steps(4) 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  :root {
+    transition: none;
+  }
+
+  .animate-tide,
+  .moon::after,
+  .atmosphere-fog,
+  .gm-enter {
+    animation: none !important;
+  }
+
+  .atmosphere {
+    transition: none;
+  }
+
+  .particle {
+    animation: none;
+    opacity: 0.35;
+    bottom: 40%;
+  }
+
+  .dark-hour-reveal {
+    animation: none;
+  }
+
+  .menu-wipe {
+    transition: none;
+  }
+}
